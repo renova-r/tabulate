@@ -1,66 +1,29 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # tabulate
 
-<!-- badges: start -->
+Pretty console output for tables, with control over cell colors, font types, borders and nested tables, built on bundled C++ headers.
 
-[![R-CMD-check](https://github.com/mlverse/tabulate/workflows/R-CMD-check/badge.svg)](https://github.com/mlverse/tabulate/actions)
-<!-- badges: end -->
+Compatibility updates by Renova.
 
-Tabulate is a thin wrapper around the [tabulate C++
-library](https://github.com/p-ranav/tabulate). It allows users to pretty
-print tables in the console, with support for different font styles,
-colors, borders and etc. It also supports multi-bytes characters and
-nesting tables.
+Version 0.1.0.9001 makes one metadata change: the `SystemRequirements: C++11` field was removed from `DESCRIPTION`. No R, C++ or documentation file was changed.
 
-<img src="man/figures/README-/demo.svg" width="100%" />
+## Install
 
-## Installation
+From R-universe:
 
-tabulate can be installed from CRAN with:
-
-    install.packages("tabulate")
-
-You can install the development version of tabulate from
-[GitHub](https://github.com/) with:
-
-``` r
-# install.packages("remotes")
-remotes::install_github("mlverse/tabulate")
+```r
+install.packages("tabulate", repos = c(
+  Renova = "https://renova-r.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
 ```
 
-## Example
+Or the exact release tag:
 
-The following example shows basic functionality of tabulate. Like
-formatting and coloring the output. Note that color and font styles are
-only suppported in platforms that support ANSI strings. For a colored
-version of this table see this
-[link](https://mlverse.github.io/tabulate/articles/unicode.html).
-
-``` r
-library(tabulate)
-department <- tabulate_table() %>% 
-  table_add_row(c("Research", "Engineering"))
-
-employees <- tabulate_table() %>% 
-  table_add_row(
-    c("Emp. ID", "First Name", "Last Name", "Department / Business Unit")) %>% 
-  table_add_row(c("101", "Donald", "Patrick", "Finance")) %>% 
-  table_add_row(
-    c("102", "Rachel", "Williams", 
-      "Marketing and Operational\nLogistics Planning")) %>% 
-  table_add_row(c("103", "Ian", "Jacob", department))
-
-employees[,1] %>% 
-  format_font_style("bold") %>% 
-  format_font_color("red") %>% 
-  format_font_align("right")
-
-employees[,4] %>% format_font_align("center") 
-print(employees)
+```r
+install.packages("remotes")
+remotes::install_github("renova-r/tabulate@renova-0.1.0.9001")
 ```
 
-<img src="man/figures/README-/table.svg" width="100%" />
+[Release notes](NEWS.md) · [Renova package directory](https://github.com/renova-r/revival-catalog)
 
-See the [example gallery](https://mlverse.github.io/tabulate/articles/)
-for more.
+tabulate was written by Daniel Falbel (maintainer). It includes code by Pranav Srinivas Kumar (Tabulate, MIT), Martin Moene (variant-lite and string-view-lite, Boost Software License 1.0) and Ihor Kalnytskyi (Termcolor, BSD); their notices are kept in `src/tabulate.h`. License: MIT + file LICENSE (see [LICENSE](LICENSE) and [LICENSE.md](LICENSE.md)).

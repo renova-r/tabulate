@@ -1,6 +1,6 @@
 Package: tabulate
 Title: Pretty Console Output for Tables
-Version: 0.1.0
+Version: 0.1.0.9001
 Authors@R: c(
     person(given = "Daniel", 
            family = "Falbel", 
@@ -22,12 +22,12 @@ Authors@R: c(
 Description: Generates pretty console output for tables allowing for full customization
   of cell colors, font type, borders and many others attributes. It also supports 'multibyte'
   characters and nested tables.
+    Compatibility updates by Renova.
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 LinkingTo: Rcpp
 Imports: cli, magrittr, rlang, Rcpp
-SystemRequirements: C++11
 URL: https://github.com/mlverse/tabulate,
         https://mlverse.github.io/tabulate/
 BugReports: https://github.com/mlverse/tabulate/issues
